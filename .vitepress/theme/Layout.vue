@@ -68,10 +68,10 @@ const { frontmatter } = useData()
 .nav-icon {
   display: flex;
   align-items: center;
-  margin-right: 10px;
+  margin-right: 0.5rem;
   /* 强制给 SVG 一个可见大小 */
-  width: 32px; 
-  height: 32px;
+  width: 2rem; 
+  height: 2rem;
 }
 
 .nav-icon svg {
