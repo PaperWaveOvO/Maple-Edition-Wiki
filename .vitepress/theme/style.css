@@ -73,7 +73,7 @@ html {
 /* 定义标点符号专用：思源黑体 */
 @font-face {
   font-family: 'Punctuation-Only';
-  src: local('Source Han Sans SC');
+  src: url('/fonts/source_han_sans_sc_regular.otf') format('opentype');
   font-weight: 400;
   unicode-range: U+3001-3002, U+3008-300F, U+2014, U+2018-2019,
     U+201C-201D, U+FF01-FF0F, U+FF1A-FF1B, U+FF1F, U+FF08-FF09;
@@ -81,7 +81,8 @@ html {
 
 @font-face {
   font-family: 'Punctuation-Only';
-  src: local('Source Han Sans SC Bold'), local('Source Han Sans SC');
+  src: url('/fonts/source_han_sans_sc_bold.otf') format('opentype'),
+    url('/fonts/source_han_sans_sc_regular.otf') format('opentype');
   font-weight: 700;
   unicode-range: U+3001-3002, U+3008-300F, U+2014, U+2018-2019,
     U+201C-201D, U+FF01-FF0F, U+FF1A-FF1B, U+FF1F, U+FF08-FF09;
@@ -90,7 +91,7 @@ html {
 /* 定义西文与数字专用：HarmonyOS Sans */
 @font-face {
   font-family: 'Western-Only';
-  src: local('HarmonyOS Sans SC');
+  src: url('/fonts/harmonyos_sans_sc_regular.ttf') format('truetype');
   font-weight: 400;
   /* 匹配 ASCII 字符、西文、以及带圈数字 (U+2460-24FF) */
   unicode-range: U+0000-007F, U+2460-24FF;
@@ -98,7 +99,8 @@ html {
 
 @font-face {
   font-family: 'Western-Only';
-  src: local('HarmonyOS Sans SC Bold'), local('HarmonyOS Sans SC');
+  src: url('/fonts/harmonyos_sans_sc_bold.ttf') format('truetype'),
+    url('/fonts/harmonyos_sans_sc_regular.ttf') format('truetype');
   font-weight: 700;
   /* 匹配 ASCII 字符、西文、以及带圈数字 (U+2460-24FF) */
   unicode-range: U+0000-007F, U+2460-24FF;
@@ -107,7 +109,7 @@ html {
 /* 中文正文：HONOR Sans (排除掉上面的标点符号) */
 @font-face {
   font-family: 'HONOR-Only';
-  src: local('HONOR Sans CN');
+  src: url('/fonts/honorsans_regular.ttf') format('truetype');
   font-weight: 400;
   unicode-range: U+3400-4DBF, U+4E00-9FFF, U+F900-FAFF,
     U+20000-2A6DF, U+2A700-2B73F, U+2B740-2B81F, U+2B820-2CEAF;
@@ -115,7 +117,8 @@ html {
 
 @font-face {
   font-family: 'HONOR-Only';
-  src: local('HONOR Sans CN Bold'), local('HONOR Sans CN');
+  src: url('/fonts/honorsans_bold.otf') format('truetype'),
+    url('/fonts/honorsans_regular.otf') format('truetype');
   font-weight: 700;
   unicode-range: U+3400-4DBF, U+4E00-9FFF, U+F900-FAFF,
     U+20000-2A6DF, U+2A700-2B73F, U+2B740-2B81F, U+2B820-2CEAF;
