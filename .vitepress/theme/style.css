@@ -109,7 +109,7 @@ html {
 /* 中文正文：HONOR Sans (排除掉上面的标点符号) */
 @font-face {
   font-family: 'HONOR-Only';
-  src: url('/fonts/honorsans_regular.ttf') format('truetype');
+  src: url('/fonts/honor_sans_regular.ttf') format('truetype');
   font-weight: 400;
   unicode-range: U+3400-4DBF, U+4E00-9FFF, U+F900-FAFF,
     U+20000-2A6DF, U+2A700-2B73F, U+2B740-2B81F, U+2B820-2CEAF;
@@ -117,8 +117,8 @@ html {
 
 @font-face {
   font-family: 'HONOR-Only';
-  src: url('/fonts/honorsans_bold.otf') format('truetype'),
-    url('/fonts/honorsans_regular.otf') format('truetype');
+  src: url('/fonts/honor_sans_bold.otf') format('truetype'),
+    url('/fonts/honor_sans_regular.otf') format('truetype');
   font-weight: 700;
   unicode-range: U+3400-4DBF, U+4E00-9FFF, U+F900-FAFF,
     U+20000-2A6DF, U+2A700-2B73F, U+2B740-2B81F, U+2B820-2CEAF;
