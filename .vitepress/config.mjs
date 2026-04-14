@@ -17,7 +17,9 @@ export default defineConfig({
     // ... 你原本的 themeConfig 内容保持不变
     nav: [
       { text: '主页', link: '/' },
-      { text: '示例', link: '/markdown-examples' }
+      { text: '快速入门', link: '/markdown-examples' },
+      { text: '生物排行', link: '/markdown-examples' },
+      { text: '关于', link: '/markdown-examples' },
     ],
     sidebar: [
       {

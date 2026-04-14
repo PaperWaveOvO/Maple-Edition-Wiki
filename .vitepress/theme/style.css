@@ -59,8 +59,6 @@ html {
   /* 现代浏览器标点挤压 */
   text-spacing-trim: trim-end;
 
-  /* 优化对齐 */
-  text-align: justify;
   text-justify: auto;
 
   /* 显式开启字距微调 */
