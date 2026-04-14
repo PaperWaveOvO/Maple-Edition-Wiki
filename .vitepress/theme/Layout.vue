@@ -55,9 +55,7 @@ const { frontmatter } = useData()
           <div class="h-10"></div>
 
           <div class="living-entity-cards">
-            <div class="card-left w-100 h-50 bg-[#efefef] rounded-2xl">
-
-            </div>
+            <a class="card-left w-100 h-50 bg-[#efefef] rounded-2xl"></a>
           </div>
         </div>
         <div class="blob-bg"></div>
