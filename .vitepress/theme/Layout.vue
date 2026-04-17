@@ -59,18 +59,39 @@ const { frontmatter } = useData()
           <p class="hero-tagline text-2xl">最详细的七枫斗蛐蛐生物百科</p>
           <div class="h-4"></div>
 
-          <div class="hero-actions flex flex-col gap-3 items-center md:items-start">
-            <a class="vp-button w-80 h-10 bg-[#ee8345] flex items-center justify-center rounded-4xl transition-all duration-300 ease-in-out hover:bg-[color-mix(in_srgb,#ee8345,black_10%)] active:bg-[color-mix(in_srgb,#ee8345,black_20%)]"
+          <div class="hero-actions flex flex-col w-full gap-3 items-center md:items-start">
+            <a class="vp-button w-full md:w-80 h-10 flex items-center justify-center rounded-4xl
+            transition-all duration-300 ease-in-out
+            bg-(--color-button-bg-light-primary)
+            dark:bg-(--color-button-bg-dark-primary)
+            hover:bg-[color-mix(in_srgb,var(--color-button-bg-light-primary),black_10%)]
+            active:bg-[color-mix(in_srgb,var(--color-button-bg-light-primary),black_20%)]
+            dark:hover:bg-[color-mix(in_srgb,var(--color-button-bg-dark-primary),white_10%)]
+            dark:active:bg-[color-mix(in_srgb,var(--color-button-bg-dark-primary),white_20%)]"
               href="/markdown-examples">
               <span class="text-white">快速开始</span>
             </a>
-            <a class="vp-button w-80 h-10 bg-[#efefef] dark:bg-[#414141] flex items-center justify-center rounded-4xl transition-all duration-300 ease-in-out hover:bg-[color-mix(in_srgb,#efefef,black_10%)] active:bg-[color-mix(in_srgb,#efefef,black_20%)]"
-              href="/api-examples">
-              <span class="text-black dark:text-white">生物排行</span>
+            <a class="vp-button w-full md:w-80 h-10 flex items-center justify-center rounded-4xl
+            transition-all duration-300 ease-in-out
+            bg-(--color-button-bg-light-secondary)
+            dark:bg-(--color-button-bg-dark-secondary)
+            hover:bg-[color-mix(in_srgb,var(--color-button-bg-light-secondary),black_10%)]
+            active:bg-[color-mix(in_srgb,var(--color-button-bg-light-secondary),black_20%)]
+            dark:hover:bg-[color-mix(in_srgb,var(--color-button-bg-dark-secondary),white_10%)]
+            dark:active:bg-[color-mix(in_srgb,var(--color-button-bg-dark-secondary),white_20%)]"
+              href="/">
+              <span>生物排行</span>
             </a>
-            <a class="vp-button w-80 h-10 bg-[#efefef] dark:bg-[#414141] flex items-center justify-center rounded-4xl transition-all duration-300 ease-in-out hover:bg-[color-mix(in_srgb,#efefef,black_10%)] active:bg-[color-mix(in_srgb,#efefef,black_20%)]"
+            <a class="vp-button w-full md:w-80 h-10 flex items-center justify-center rounded-4xl
+            transition-all duration-300 ease-in-out
+            bg-(--color-button-bg-light-secondary)
+            dark:bg-(--color-button-bg-dark-secondary)
+            hover:bg-[color-mix(in_srgb,var(--color-button-bg-light-secondary),black_10%)]
+            active:bg-[color-mix(in_srgb,var(--color-button-bg-light-secondary),black_20%)]
+            dark:hover:bg-[color-mix(in_srgb,var(--color-button-bg-dark-secondary),white_10%)]
+            dark:active:bg-[color-mix(in_srgb,var(--color-button-bg-dark-secondary),white_20%)]"
               href="/api-examples">
-              <span class="text-black dark:text-white">支持一下七枫<span class="p-trim">！</span></span>
+              <span>支持一下七枫<span class="p-trim">！</span></span>
             </a>
           </div>
 
@@ -80,10 +101,24 @@ const { frontmatter } = useData()
             热门生物
           </div>
 
-          <div class="living-entity-cards w-full flex flex-col min-[90rem]:flex-row items-center md:items-start justify-between gap-4">
-            <HomeLivingEntityCard name="僵尸猪灵" darkColor="#f21212" extraLightColor="#f6e4e4"
-              :starsHtml="`<span class='text-(--color-rare-red-extra_light) font-bold text-1xl'>★★</span><span class='text-(--color-rare-red-light) font-bold text-1xl'>★★★</span>`"
-              :skillHtml="`<span class='p-trim'><b>死灵复生：</b>斩杀血量低于5的队友，在其位置处召唤僵尸猪灵（多个可叠加）<span class='p-trim'>。</span></span>`"
+          <div
+            class="living-entity-cards w-full flex flex-col min-[90rem]:flex-row items-center md:items-start justify-between gap-4">
+            <HomeLivingEntityCard name="僵尸猪灵" lightPrimary="#f21212" lightSecondary="#f89d9d" lightTertiary="#f6e4e4"
+              darkPrimary="#ed3e3e" darkSecondary="#513030" darkTertiary="#3e2222"
+              :starsHtml="`<span style='color: var(--color-rare-red-light-tertiary)' class='font-bold text-1xl'>★</span><span style='color: var(--color-rare-red-light-secondary)' class='font-bold text-1xl'>★★★★</span>`"
+              :skillHtml="`<span><b>死灵复生：</b>斩杀生命值低于 5 点的队友，在其位置处召唤新的僵尸猪灵（可叠加）<span class='p-trim'>。</span></span>`"
+              imgSrc="/images/zombified_piglin.png" :imgStyle="{ width: '4.5rem', left: '0%', top: '-20%' }" />
+
+            <HomeLivingEntityCard name="僵尸猪灵" lightPrimary="#f21212" lightSecondary="#f89d9d" lightTertiary="#f6e4e4"
+              darkPrimary="#ed3e3e" darkSecondary="#513030" darkTertiary="#3e2222"
+              :starsHtml="`<span style='color: var(--color-rare-red-light-tertiary)' class='font-bold text-1xl'>★</span><span style='color: var(--color-rare-red-light-secondary)' class='font-bold text-1xl'>★★★★</span>`"
+              :skillHtml="`<span><b>死灵复生：</b>斩杀生命值低于 5 点的队友，在其位置处召唤新的僵尸猪灵（可叠加）<span class='p-trim'>。</span></span>`"
+              imgSrc="/images/zombified_piglin.png" :imgStyle="{ width: '4.5rem', left: '0%', top: '-20%' }" />
+
+            <HomeLivingEntityCard name="僵尸猪灵" lightPrimary="#f21212" lightSecondary="#f89d9d" lightTertiary="#f6e4e4"
+              darkPrimary="#ed3e3e" darkSecondary="#513030" darkTertiary="#3e2222"
+              :starsHtml="`<span style='color: var(--color-rare-red-light-tertiary)' class='font-bold text-1xl'>★</span><span style='color: var(--color-rare-red-light-secondary)' class='font-bold text-1xl'>★★★★</span>`"
+              :skillHtml="`<span><b>死灵复生：</b>斩杀生命值低于 5 点的队友，在其位置处召唤新的僵尸猪灵（可叠加）<span class='p-trim'>。</span></span>`"
               imgSrc="/images/zombified_piglin.png" :imgStyle="{ width: '4.5rem', left: '0%', top: '-20%' }" />
           </div>
         </div>
@@ -95,9 +130,15 @@ const { frontmatter } = useData()
 
 <style>
 :root {
-  --color-rare-red-extra_light: #f6e4e4;
-  --color-rare-red-light: #f77e7e;
-  --color-rare-red-dark: #f21212;
+  --color-button-bg-light-primary: #ee8345;
+  --color-button-bg-dark-primary: #cf723c;
+
+  --color-button-bg-light-secondary: #efefef;
+  --color-button-bg-dark-secondary: #414141;
+
+  --color-rare-red-light-tertiary: #f6e4e4;
+  --color-rare-red-light-secondary: #f77e7e;
+  --color-rare-red-light-primary: #f21212;
 }
 </style>
 
@@ -199,7 +240,7 @@ const { frontmatter } = useData()
 
   .custom-home {
     text-align: center;
-    padding: 8rem 2rem;
+    padding: 2rem 2rem;
   }
 }
 </style>
