@@ -1,6 +1,6 @@
 <template>
     <a href="/"
-        class="home-card block w-full h-50 min-[90rem]:h-65 rounded-[1.8rem] transition-all duration-300 ease-in-out hover:ring-2 hover:ring-[#ee8345] active:ring-[#ee8345] hover:shadow-xl active:shadow-xl"
+        class="home-card block w-full h-65 rounded-[1.8rem] transition-all duration-300 ease-in-out hover:ring-2 hover:ring-[#ee8345] active:ring-[#ee8345] hover:shadow-xl active:shadow-xl"
         :style="cssVariables">
 
         <div class="p-[0.7rem] flex flex-col items-center justify-center h-full">
@@ -17,7 +17,7 @@
             </div>
 
             <div class="flex-1 flex flex-col items-center justify-center px-3 gap-0.5">
-                <span class="skill-title font-bold text-1xl">技能</span>
+                <span class="skill-title font-bold text-1xl">{{ skillLabel }}</span>
                 <div class="skill-content text-[1.15rem] text-center" v-html="skillHtml"></div>
             </div>
         </div>
@@ -28,28 +28,32 @@
 import { computed } from 'vue'
 
 const props = defineProps({
-  name: String,
-  imgSrc: String,
-  imgStyle: Object,
-  starsHtml: String,
-  skillHtml: String,
-  // 颜色定义
-  lightPrimary: String,    // 浅色主色
-  lightSecondary: String,  // 浅色二级颜色
-  lightTertiary: String,   // 浅色三级颜色
-  darkPrimary: String,     // 深色主色
-  darkSecondary: String,   // 深色二级颜色
-  darkTertiary: String     // 深色三级颜色
+    name: String,
+    imgSrc: String,
+    imgStyle: Object,
+    starsHtml: String,
+    skillLabel: {
+        type: String,
+        default: '技能'
+    },
+    skillHtml: String,
+    // 颜色定义
+    lightPrimary: String,    // 浅色主色
+    lightSecondary: String,  // 浅色二级颜色
+    lightTertiary: String,   // 浅色三级颜色
+    darkPrimary: String,     // 深色主色
+    darkSecondary: String,   // 深色二级颜色
+    darkTertiary: String     // 深色三级颜色
 })
 
 // 将 Props 映射为 CSS 变量
 const cssVariables = computed(() => ({
-  '--light-tertiary': props.lightTertiary,
-  '--light-secondary': props.lightSecondary,
-  '--light-primary': props.lightPrimary,
-  '--dark-tertiary': props.darkTertiary,
-  '--dark-secondary': props.darkSecondary,
-  '--dark-primary': props.darkPrimary,
+    '--light-tertiary': props.lightTertiary,
+    '--light-secondary': props.lightSecondary,
+    '--light-primary': props.lightPrimary,
+    '--dark-tertiary': props.darkTertiary,
+    '--dark-secondary': props.darkSecondary,
+    '--dark-primary': props.darkPrimary,
 }))
 </script>
 

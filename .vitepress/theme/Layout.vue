@@ -1,13 +1,135 @@
 <script setup>
 import DefaultTheme from 'vitepress/theme'
 import { useData } from 'vitepress'
+import NavBar from './components/NavBar.vue'
 import HomeLivingEntityCard from './components/HomeLivingEntityCard.vue'
+import { computed } from 'vue'
 
 const { Layout } = DefaultTheme
-const { frontmatter } = useData()
+const { frontmatter, lang } = useData()
+
+const i18n = {
+  'zh-CN': {
+    home: {
+      title: '枫版 Wiki',
+      tagline: '最详细的七枫斗蛐蛐生物百科',
+      start: '快速开始',
+      ranking: '生物排行',
+      support: '支持一下七枫<span class="p-trim">！</span>',
+      popular_living_entities: '热门生物',
+      skill_label: '技能',
+      welcome: '欢迎',
+      welcome_content: `<p>
+            欢迎来到由<a href="https://github.com/PaperWaveOvO" target="_blank" rel="noopener noreferrer"
+              class="text-(--color-link-light)! underline! decoration-transparent! hover:decoration-(--color-link-light)! active:text-(--color-link-light-active)! decoration-2 underline-offset-2 transition-all duration-300">纸浪i（PaperWaveOvO）</a>倾力打造的<b>枫版
+            Wiki</b><span class="p-trim">！</span>
+          </p>
+
+          <p class="mt-1.5!">
+            这里是专为玩家建立的权威生物档案库，提供一站式、全方位的生物详情查询。
+          </p>`,
+      about: '关于本网站',
+      about_content: '本站为非营利性平台，不隶属于 Mojang 或 Microsoft，亦非 Minecraft 官方网站。',
+    },
+    creatures: [
+      {
+        name: '骷髅王',
+        skill: `<span><b>死灵复生：</b>斩杀生命值低于 5 点的队友，在其位置处召唤新的僵尸猪灵（可叠加）<span class='p-trim'>。</span></span>`
+      },
+      {
+        name: '监守者',
+        skill: `<span><b>死灵复生：</b>斩杀生命值低于 5 点的队友，在其位置处召唤新的僵尸猪灵（可叠加）<span class='p-trim'>。</span></span>`
+      },
+      {
+        name: '美西螈',
+        skill: `<span><b>死灵复生：</b>斩杀生命值低于 5 点的队友，在其位置处召唤新的僵尸猪灵（可叠加）<span class='p-trim'>。</span></span>`
+      },
+    ]
+  },
+  'en-US': {
+    home: {
+      title: 'Maple Edition Wiki',
+      tagline: 'The most detailed creature encyclopedia',
+      start: 'Get started',
+      ranking: 'Rankings',
+      support: 'Support July Maple!',
+      popular_living_entities: 'Featured entities',
+      skill_label: 'Skill',
+      welcome: 'Welcome',
+      welcome_content: `<p>
+        Welcome to the <b>Maple Edition Wiki</b>, proudly crafted by 
+          <a href="https://github.com/PaperWaveOvO" target="_blank" rel="noopener noreferrer"
+            class="text-(--color-link-light)! underline! decoration-transparent! hover:decoration-(--color-link-light)! active:text-(--color-link-light-active)! decoration-2 underline-offset-2 transition-all duration-300">
+            PaperWaveOvO (纸浪i)</a>!
+        </p>
+
+        <p class="mt-1.5!">
+          A comprehensive, one-stop biological archive built for players to explore every detail of the game<span class="curly-quote">’</span>s creatures.
+        </p>`,
+      about: 'About',
+      about_content: 'This is a non-profit platform, not affiliated with Mojang or Microsoft.',
+    },
+    cards: {
+      skill: 'Skill',
+    },
+    creatures: [
+      {
+        name: 'Skeleton King',
+        skill: `<span><b>Grandmaster of Arms: </b>Possesses every single skill from all skeleton variants.</span>`
+      },
+      {
+        name: 'Warden',
+        skill: `<span><b>Loud and <span class="curly-quote">“</span>Loyal<span class="curly-quote">”</span>: </b>Loses AI upon game start; continuously spams Warden <span class="curly-quote">“</span>fanboy<span class="curly-quote">”</span> quotes in the chat box after being attacked.</span>`
+      },
+      {
+        name: 'Axolotl',
+        skill: `<span><b>Deadly Cute: </b>Recruits the first creature that attacks it into the friendly team.</span>`
+      },
+    ]
+  }
+}
+
+const tr = computed(() => i18n[lang.value] ?? i18n['zh-CN'])
+
+const creatureConfigs = [
+  {
+    lightPrimary: 'var(--color-rare-gold-light-primary)',
+    lightSecondary: 'var(--color-rare-gold-light-secondary)',
+    lightTertiary: 'var(--color-rare-gold-light-tertiary)',
+    darkPrimary: 'var(--color-rare-gold-dark-primary)',
+    darkSecondary: 'var(--color-rare-gold-dark-secondary)',
+    darkTertiary: 'var(--color-rare-gold-dark-tertiary)',
+    starsHtml: `<span style='color: var(--color-rare-gold-light-tertiary)' class='font-bold text-1xl'>★★★★★</span>`,
+    imgSrc: '/images/zombified_piglin.png',
+    imgStyle: { width: '4.5rem', left: '0%', top: '-20%' }
+  },
+  {
+    lightPrimary: 'var(--color-rare-red-light-primary)',
+    lightSecondary: 'var(--color-rare-red-light-secondary)',
+    lightTertiary: 'var(--color-rare-red-light-tertiary)',
+    darkPrimary: 'var(--color-rare-red-dark-primary)',
+    darkSecondary: 'var(--color-rare-red-dark-secondary)',
+    darkTertiary: 'var(--color-rare-red-dark-tertiary)',
+    starsHtml: `<span style='color: var(--color-rare-red-light-tertiary)' class='font-bold text-1xl'>★★★★☆</span>`,
+    imgSrc: '/images/zombified_piglin.png',
+    imgStyle: { width: '4.5rem', left: '0%', top: '-20%' }
+  },
+  {
+    lightPrimary: 'var(--color-rare-pink-light-primary)',
+    lightSecondary: 'var(--color-rare-pink-light-secondary)',
+    lightTertiary: 'var(--color-rare-pink-light-tertiary)',
+    darkPrimary: 'var(--color-rare-pink-dark-primary)',
+    darkSecondary: 'var(--color-rare-pink-dark-secondary)',
+    darkTertiary: 'var(--color-rare-pink-dark-tertiary)',
+    starsHtml: `<span style='color: var(--color-rare-pink-light-tertiary)' class='font-bold text-1xl'>★★★☆☆</span>`,
+    imgSrc: '/images/zombified_piglin.png',
+    imgStyle: { width: '4.5rem', left: '0%', top: '-20%' }
+  },
+]
 </script>
 
 <template>
+  <NavBar />
   <Layout>
     <template #nav-bar-title-before>
       <div class="nav-icon">
@@ -54,9 +176,9 @@ const { frontmatter } = useData()
     <template #home-hero-before>
       <div v-if="frontmatter.layout === 'home'" class="custom-home">
         <div class="hero-content flex flex-col items-center md:items-start text-center md:text-left">
-          <h1 class="hero-title">枫版 Wiki</h1>
+          <h1 class="hero-title">{{ tr.home.title }}</h1>
           <div class="h-1"></div>
-          <p class="hero-tagline text-2xl">最详细的七枫斗蛐蛐生物百科</p>
+          <p class="hero-tagline text-2xl">{{ tr.home.tagline }}</p>
           <div class="h-4"></div>
 
           <div class="hero-actions flex flex-col w-full gap-3 items-center md:items-start">
@@ -69,7 +191,7 @@ const { frontmatter } = useData()
             dark:hover:bg-[color-mix(in_srgb,var(--color-button-bg-dark-primary),white_10%)]
             dark:active:bg-[color-mix(in_srgb,var(--color-button-bg-dark-primary),white_20%)]"
               href="/markdown-examples">
-              <span class="text-white">快速开始</span>
+              <span class="text-white">{{ tr.home.start }}</span>
             </a>
             <a class="vp-button w-full md:w-80 h-10 flex items-center justify-center rounded-4xl
             transition-all duration-300 ease-in-out
@@ -78,9 +200,8 @@ const { frontmatter } = useData()
             hover:bg-[color-mix(in_srgb,var(--color-button-bg-light-secondary),black_10%)]
             active:bg-[color-mix(in_srgb,var(--color-button-bg-light-secondary),black_20%)]
             dark:hover:bg-[color-mix(in_srgb,var(--color-button-bg-dark-secondary),white_10%)]
-            dark:active:bg-[color-mix(in_srgb,var(--color-button-bg-dark-secondary),white_20%)]"
-              href="/">
-              <span>生物排行</span>
+            dark:active:bg-[color-mix(in_srgb,var(--color-button-bg-dark-secondary),white_20%)]" href="/">
+              <span>{{ tr.home.ranking }}</span>
             </a>
             <a class="vp-button w-full md:w-80 h-10 flex items-center justify-center rounded-4xl
             transition-all duration-300 ease-in-out
@@ -89,40 +210,50 @@ const { frontmatter } = useData()
             hover:bg-[color-mix(in_srgb,var(--color-button-bg-light-secondary),black_10%)]
             active:bg-[color-mix(in_srgb,var(--color-button-bg-light-secondary),black_20%)]
             dark:hover:bg-[color-mix(in_srgb,var(--color-button-bg-dark-secondary),white_10%)]
-            dark:active:bg-[color-mix(in_srgb,var(--color-button-bg-dark-secondary),white_20%)]"
-              href="/api-examples">
-              <span>支持一下七枫<span class="p-trim">！</span></span>
+            dark:active:bg-[color-mix(in_srgb,var(--color-button-bg-dark-secondary),white_20%)]" href="/api-examples">
+              <span v-html="tr.home.support"></span>
             </a>
           </div>
 
           <div class="h-10"></div>
 
-          <div class="hot-living-entities text-2xl font-bold mb-3">
-            热门生物
+          <div class="hot-living-entities w-full items-center md:items-start flex flex-col">
+            <div class="hot-living-entities text-2xl font-bold mb-3">
+              {{ tr.home.popular_living_entities }}
+            </div>
           </div>
 
           <div
-            class="living-entity-cards w-full flex flex-col min-[90rem]:flex-row items-center md:items-start justify-between gap-4">
-            <HomeLivingEntityCard name="僵尸猪灵" lightPrimary="#f21212" lightSecondary="#f89d9d" lightTertiary="#f6e4e4"
-              darkPrimary="#ed3e3e" darkSecondary="#513030" darkTertiary="#3e2222"
-              :starsHtml="`<span style='color: var(--color-rare-red-light-tertiary)' class='font-bold text-1xl'>★</span><span style='color: var(--color-rare-red-light-secondary)' class='font-bold text-1xl'>★★★★</span>`"
-              :skillHtml="`<span><b>死灵复生：</b>斩杀生命值低于 5 点的队友，在其位置处召唤新的僵尸猪灵（可叠加）<span class='p-trim'>。</span></span>`"
-              imgSrc="/images/zombified_piglin.png" :imgStyle="{ width: '4.5rem', left: '0%', top: '-20%' }" />
-
-            <HomeLivingEntityCard name="僵尸猪灵" lightPrimary="#f21212" lightSecondary="#f89d9d" lightTertiary="#f6e4e4"
-              darkPrimary="#ed3e3e" darkSecondary="#513030" darkTertiary="#3e2222"
-              :starsHtml="`<span style='color: var(--color-rare-red-light-tertiary)' class='font-bold text-1xl'>★</span><span style='color: var(--color-rare-red-light-secondary)' class='font-bold text-1xl'>★★★★</span>`"
-              :skillHtml="`<span><b>死灵复生：</b>斩杀生命值低于 5 点的队友，在其位置处召唤新的僵尸猪灵（可叠加）<span class='p-trim'>。</span></span>`"
-              imgSrc="/images/zombified_piglin.png" :imgStyle="{ width: '4.5rem', left: '0%', top: '-20%' }" />
-
-            <HomeLivingEntityCard name="僵尸猪灵" lightPrimary="#f21212" lightSecondary="#f89d9d" lightTertiary="#f6e4e4"
-              darkPrimary="#ed3e3e" darkSecondary="#513030" darkTertiary="#3e2222"
-              :starsHtml="`<span style='color: var(--color-rare-red-light-tertiary)' class='font-bold text-1xl'>★</span><span style='color: var(--color-rare-red-light-secondary)' class='font-bold text-1xl'>★★★★</span>`"
-              :skillHtml="`<span><b>死灵复生：</b>斩杀生命值低于 5 点的队友，在其位置处召唤新的僵尸猪灵（可叠加）<span class='p-trim'>。</span></span>`"
-              imgSrc="/images/zombified_piglin.png" :imgStyle="{ width: '4.5rem', left: '0%', top: '-20%' }" />
+            class="home-living-entity-cards w-full flex flex-col 2xl:flex-row items-center md:items-start justify-between gap-4">
+            <HomeLivingEntityCard v-for="(config, i) in creatureConfigs" :key="i" :name="tr.creatures[i].name"
+              :skillHtml="tr.creatures[i].skill" :skillLabel="tr.home.skill_label" v-bind="config" />
           </div>
         </div>
-        <div class="blob-bg"></div>
+
+        <!-- <div class="blob-bg"></div> -->
+
+        <div class="h-10"></div>
+
+        <div class="hot-living-entities w-full items-center md:items-start flex flex-col">
+          <div class="hot-living-entities text-2xl font-bold mb-3">
+            {{ tr.home.welcome }}
+          </div>
+        </div>
+
+        <div class="about-content" v-html="tr.home.welcome_content">
+        </div>
+
+        <div class="h-10"></div>
+
+        <div class="hot-living-entities w-full items-center md:items-start flex flex-col">
+          <div class="hot-living-entities text-2xl font-bold mb-3">
+            {{ tr.home.about }}
+          </div>
+        </div>
+
+        <div class="about-content">
+          {{ tr.home.about_content }}
+        </div>
       </div>
     </template>
   </Layout>
@@ -130,19 +261,50 @@ const { frontmatter } = useData()
 
 <style>
 :root {
-  --color-button-bg-light-primary: #ee8345;
-  --color-button-bg-dark-primary: #cf723c;
+  --color-link-light: var(--color-button-bg-light-primary);
+  --color-link-light-active: color-mix(in sRGB, var(--color-link-light), black 40%);
+
+  --color-link-dark: #1580bc;
+
+  --color-button-bg-light-primary: #ff7f00;
+  --color-button-bg-dark-primary: #d96d00;
 
   --color-button-bg-light-secondary: #efefef;
   --color-button-bg-dark-secondary: #414141;
 
-  --color-rare-red-light-tertiary: #f6e4e4;
-  --color-rare-red-light-secondary: #f77e7e;
+  --color-nav-button-bg-light-hover: #efefef;
+
+  --color-rare-gold-light-primary: #ff7f00;
+  --color-rare-gold-light-secondary: color-mix(in sRGB, var(--color-rare-gold-light-primary), white 50%);
+  --color-rare-gold-light-tertiary: color-mix(in sRGB, var(--color-rare-gold-light-primary), white 80%);
+
+  --color-rare-gold-dark-primary: #ff870f;
+  --color-rare-gold-dark-secondary: color-mix(in sRGB, var(--color-rare-gold-dark-primary), #1e1e1e 50%);
+  --color-rare-gold-dark-tertiary: color-mix(in sRGB, var(--color-rare-gold-dark-primary), #1e1e1e 80%);
+
   --color-rare-red-light-primary: #f21212;
+  --color-rare-red-light-secondary: color-mix(in sRGB, var(--color-rare-red-light-primary), white 50%);
+  --color-rare-red-light-tertiary: color-mix(in sRGB, var(--color-rare-red-light-primary), white 80%);
+
+  --color-rare-red-dark-primary: #f21212;
+  --color-rare-red-dark-secondary: color-mix(in sRGB, var(--color-rare-red-dark-primary), #1e1e1e 50%);
+  --color-rare-red-dark-tertiary: color-mix(in sRGB, var(--color-rare-red-dark-primary), #1e1e1e 80%);
+
+  --color-rare-pink-light-primary: #f342b2;
+  --color-rare-pink-light-secondary: color-mix(in sRGB, var(--color-rare-pink-light-primary), white 50%);
+  --color-rare-pink-light-tertiary: color-mix(in sRGB, var(--color-rare-pink-light-primary), white 80%);
+
+  --color-rare-pink-dark-primary: #f152b7;
+  --color-rare-pink-dark-secondary: color-mix(in sRGB, var(--color-rare-pink-dark-primary), #1e1e1e 50%);
+  --color-rare-pink-dark-tertiary: color-mix(in sRGB, var(--color-rare-pink-dark-primary), #1e1e1e 80%);
 }
 </style>
 
 <style scoped>
+:deep(.VPNav) {
+  display: none !important;
+}
+
 .nav-icon {
   display: flex;
   align-items: center;
@@ -165,7 +327,7 @@ const { frontmatter } = useData()
 
 /* 这里写你专属的首页样式 */
 .custom-home {
-  padding: 8rem 14rem;
+  padding: 8rem 14rem 0rem 14rem;
   max-width: 100%;
   margin: 0 auto;
   position: relative;
@@ -233,14 +395,14 @@ const { frontmatter } = useData()
 }
 
 /* 移动端适配 */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .hero-title {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 
   .custom-home {
     text-align: center;
-    padding: 2rem 2rem;
+    padding: 6rem 2rem 2rem 2rem;
   }
 }
 </style>

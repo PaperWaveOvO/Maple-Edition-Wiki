@@ -49,7 +49,7 @@
   --color-brand-purple: #bd34fe;
 }
 
-@source "./Layout.vue"; 
+@source "./Layout.vue";
 @source "./**/*.vue";
 @source "../../**/*.md";
 
@@ -120,6 +120,22 @@ html {
   font-weight: 700;
   unicode-range: U+3400-4DBF, U+4E00-9FFF, U+F900-FAFF,
     U+20000-2A6DF, U+2A700-2B73F, U+2B740-2B81F, U+2B820-2CEAF;
+}
+
+/* 仅弯引号，用于英文中的引号 */
+@font-face {
+  font-family: 'Curly-Quote';
+  src: url('/fonts/harmonyos_sans_sc_regular.ttf') format('truetype');
+  font-weight: 400;
+  unicode-range: U+2018-201F;
+}
+
+@font-face {
+  font-family: 'Curly-Quote';
+  src: url('/fonts/harmonyos_sans_sc_bold.ttf') format('truetype'),
+    url('/fonts/harmonyos_sans_sc_regular.ttf') format('truetype');
+  font-weight: 700;
+  unicode-range: U+2018-201F;
 }
 
 /* 应用到全局 */
@@ -297,4 +313,8 @@ html {
 .punct-line-end,
 .p-trim {
   font-feature-settings: "halt" 1;
+}
+
+.curly-quote {
+  font-family: 'Curly-Quote', sans-serif;
 }

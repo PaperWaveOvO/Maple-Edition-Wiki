@@ -1,20 +1,28 @@
 import { defineConfig } from 'vitepress'
-import tailwindcss from '@tailwindcss/vite' // 1. 引入插件
+import tailwindcss from '@tailwindcss/vite'
 
-// https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "枫版 Wiki",
-  description: "枫版生物百科",
-  
-  // 2. 在这里添加 Vite 配置
+  locales: {
+    root: {
+      label: '简体中文',
+      lang: 'zh-CN',
+      title: '枫版 Wiki',
+      description: '枫版生物百科',
+    },
+    en: {
+      label: 'English',
+      lang: 'en-US',
+      link: '/en/',
+      title: 'Maple Wiki',
+      description: 'Maple creature encyclopedia',
+    },
+  },
+
   vite: {
-    plugins: [
-      tailwindcss(),
-    ],
+    plugins: [tailwindcss()],
   },
 
   themeConfig: {
-    // ... 你原本的 themeConfig 内容保持不变
     nav: [
       { text: '主页', link: '/' },
       { text: '快速入门', link: '/markdown-examples' },
